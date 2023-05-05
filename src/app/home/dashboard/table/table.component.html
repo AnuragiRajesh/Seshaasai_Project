@@ -1,0 +1,85 @@
+<div class="content" style="background-color: #FFFFFF; ">
+	<div class="ml-4 mr-4">
+		<div class="ml-4 mr-4 search-button">
+			<div class="row ">
+				<div class="input-group">
+					<input style="width: 10%; height: 45px;" class="form-control py-2 border-right-0 border"
+						type="search" value="search" id="example-search-input" matInput placeholder="Search"
+						[(ngModel)]="searchText" (input)="applyFilter()">
+					<span class="input-group-append">
+						<div style="height: 45px;" class="input-group-text bg-transparent form-control"><i
+								class="fa fa-search"></i></div>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div>
+					<button matTooltip="Excel" class="export-button " (click)="exportAsExcelFile('excel')">Download As
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div  class="example-container table-margin" #Table>
+		<mat-table class="mat-table" #table [dataSource]="dataSource" multiTemplateDataRows matSort>
+			<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns1">
+				<mat-header-cell style="background-color: #F4F4F4;" *matHeaderCellDef mat-sort-header> {{column}}
+				</mat-header-cell>
+				<mat-cell *matCellDef="let element" [style.width]="cellWidth">
+					<span class="mobile-label">{{column}}:</span>
+					{{element[column]}} </mat-cell>
+			</ng-container>
+			<!-- Expanded Content Column - The detail row is made up of this one column -->
+			<ng-container matColumnDef="expandedDetail">
+				<!-- <p>hh</p> -->
+				<td mat-cell *matCellDef="let element" [attr.colspan]="expandableColumn.length "
+					[style.padding]="'20px'" [style.background-color]="'#F4F4F4'" [style.width]="'100%'"
+					[style.text-align]="'center'">
+					<ng-container style="display: flex; flex-direction: row; background-color: #F4F4F4; ">
+						<mat-table [dataSource]="activitydataSource"
+							class="mat-elevation-z8 mat-table-without-lines">
+							<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsWithOutDownloadButton">
+									<mat-header-cell style="background-color: #F4F4F4; text-align: center;"   *matHeaderCellDef> {{column}} </mat-header-cell>
+									<mat-cell style="text-align: center;" *matCellDef="let element1"><span class="mobile-label">{{column}}:</span>
+										{{element1[column]}} </mat-cell >
+							</ng-container>
+							<ng-container matColumnDef="action" >
+								<mat-header-cell style="text-align: center; background-color: #F4F4F4;" *matHeaderCellDef> download </mat-header-cell>
+								<mat-cell style="text-align: center; " *matCellDef="let element1">
+									<span class="mobile-label">download:</span>
+									<button matTooltip="download" mat-icon-button (click)="downloadActivity(element1)"><mat-icon>cloud_download</mat-icon></button></mat-cell >
+						</ng-container> 
+							<mat-header-row *matHeaderRowDef="displayedColumnsWithDownloadButton"></mat-header-row>
+							<mat-row *matRowDef="let row; columns: displayedColumnsWithDownloadButton;"></mat-row>
+						</mat-table>
+					</ng-container>
+
+				</td>
+			</ng-container>
+			<ng-container matColumnDef="action">
+				<mat-header-cell style="background-color: #F4F4F4;" *matHeaderCellDef> Know more </mat-header-cell>
+				<mat-cell *matCellDef="let element">
+					<span class="mobile-label">Know more</span>
+					<button mat-icon-button *ngIf="expandedElement != element" matTooltip="know"
+						style="text-decoration: none; border: none; background-color: #FFFFFF;"
+						[class.expanded]="expandedElement == element" (click)="expandedElement = element"
+						(click)="getActivities(element)">
+						<mat-icon>add_circle_outline</mat-icon>
+					</button>
+					<button mat-icon-button *ngIf="expandedElement == element" matTooltip="close"
+						style="text-decoration: none; border: none; background-color: #FFFFFF;"
+						[class.expanded]="expandedElement == undefined" (click)="expandedElement = undefined">
+						<mat-icon>cancel</mat-icon>
+					</button>
+				</mat-cell>
+			</ng-container>
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
+			<mat-row *matRowDef="let row; columns: ['expandedDetail'];"
+				[@detailExpand]="row == expandedElement ? 'expanded' : 'collapsed'" style="overflow: hidden">
+			</mat-row>
+		</mat-table>
+		<mat-paginator class="paginator" #MatPaginator showFirstLastButtons pageSize="4"></mat-paginator>
+	</div>
+</div>
+<!-- <button (click)="bb()" >click</button> -->

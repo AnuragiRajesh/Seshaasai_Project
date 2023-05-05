@@ -1,0 +1,29 @@
+
+
+<div class="containerr">
+
+    <div class="form-box">
+    <p >{{showError}}</p>
+        <img src="../../assets/seshaasai_logo.jpg" alt="Seshaasai Logo">
+        <form  [formGroup]="profileForm" (ngSubmit)="submitbutton()" >
+            <div class="input-group">
+                <div  class="input-field" id="nameField">
+                    <!-- <i class="fa-solid fa-user"></i> -->
+                    <input type="text" id="username" placeholder="Name" formControlName="UserName">
+                </div>
+                <div class="input-field">
+                    <!-- <i class="fa-solid fa-lock"></i> -->
+                    <input type="password" id="password" placeholder="Password" formControlName="Password">
+                </div>
+                <p>Forgot password? <a href="#">Click here</a></p>
+            </div>
+            <div class="btn-field">
+                <button type="submit"  >Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

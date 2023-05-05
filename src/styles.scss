@@ -1,0 +1,219 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.export-button {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #43425D;
+    // margin-bottom: 15px;
+}
+.search-button {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 1.5rem;
+}
+
+.addNewRoleAndUserButton {
+    text-align: right;
+    background-color: #FFFFFF;
+    text-decoration: underline;
+    font: normal normal medium 1px/1px Montserrat;
+    letter-spacing: 0.4px;
+    color: #43425D;
+    opacity: 1;
+}
+.matIconButton {
+    text-decoration: none;
+    border: none;
+    background-color: #FFFFFF;
+}
+.mat-header-row,
+.mat-row {
+    display: inline-flex;
+    min-width: 100%;
+}
+.addingNewRoleUser {
+    text-align: left;
+    font: normal normal bold 20px/17px Montserrat;
+    letter-spacing: 0.5px;
+    color: #43425D;
+    opacity: 1;
+
+}
+.input-selection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+}
+.input-selection-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 25px;
+}
+.edit-assign-role {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.inputLables {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+@media only screen and (max-width: 1100px) {
+    .edit-assign-role {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .export-button {
+        width: 120px;
+        height: 35px;
+        border-radius: 10px;
+        border: 1px solid #43425D;
+        // margin-left: 15px;
+    }
+    .addNewRoleAndUserButton {
+        text-align: right;
+        background-color: #FFFFFF;
+        text-decoration: underline;
+        font: normal normal 13px/17px Montserrat;
+        letter-spacing: 0.4px;
+        color: #43425D;
+        opacity: 1;
+    }
+    .addingNewRoleUser {
+        text-align: left;
+        font: normal normal bold 14px/17px Montserrat;
+        letter-spacing: 0.5px;
+        color: #43425D;
+        opacity: 1;
+        gap: 1.5rem;
+    }
+    .inputLables {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+    }
+    .input-selection {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .input-selection-divider {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 15px;
+    }
+}
+body {
+    @media screen and (max-width: 768px) {
+        .content {
+        //    align-self: center;
+            margin-left: 0px !important;
+        }
+    }
+}
+.content {
+    margin-left: 230px;
+    margin-right: 10px;
+}
+.mainMultiselect {
+    top: 91px;
+    left: 1113px;
+    width: 220px;
+    height: 40px;
+}
+.inputBox {
+    width: 220px;
+    height: 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    border-color: #999999 !important;
+    border: solid 1.5PX;
+}
+.submitButton {
+    width: 220px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #43425D;
+}
+
+
+///////////////////handled table media quarry/////////////////////////////////
+/// 
+.table-margin{
+    margin: 20px;
+
+}
+.mat-table-without-lines {
+    border-collapse: collapse;
+   
+  }
+  
+  .mat-table-without-lines td,
+  .mat-table-without-lines th {
+    border: none;
+  }
+
+
+   tr.mat-mdc-row:hover {
+      background-color: lightgray;
+  }
+  .mobile-label {
+  display: none;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+@media(max-width: 600px) {
+    .table-margin{
+        margin: 0px;
+    
+    }
+
+  .mobile-label {
+    width: 80px;
+    display: inline-block ; 
+        font-weight: bold;
+  }
+  .mat-table{
+    margin-left: 0px;
+  }
+  mat-header-row {
+    display: none !important;
+  }
+  mat-row { 
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+  }
+}
+///////////////////handled table media quarry/////////////////////////////////

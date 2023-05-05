@@ -1,0 +1,145 @@
+<div class="content" style="background-color: #FFFFFF; ">
+  <div class="m-4">
+    <div class="d-flex justify-content-between">
+      <div class="addingNewRoleUser">Add new user</div>
+      <a style="display: flex;" [routerLink]="['/home/userComponent/user']" class="addNewRoleAndUserButton">
+        <mat-icon>chevron_left</mat-icon>
+        <div><a>Back to list</a></div>
+      </a>
+    </div>
+    <hr>
+    <form [formGroup]="reactiveForm" #form="ngForm">
+      <div class="input-selection">
+        <div class="input-selection-divider">
+          <div class="inputLables">
+            <div style="order: 1;" class="pt-1">
+              <label for="firstName" class="form-label">First Name:</label>
+            </div>
+            <div style=" order: 2;
+        margin-left: auto;" class="mainMultiselect">
+              <input class="inputBox form-control form-control-sm" type="text" id="firstName" name="firstName"
+                formControlName="firstName" placeholder="Enter First Name" required maxlength="250"
+                [class.is-invalid]="firstName.invalid && (firstName.dirty || firstName.touched)">
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="invalid-feedback">
+                <div *ngIf="firstName.errors?.['required']">
+                  This field is required.
+                </div>
+                <div *ngIf="firstName.errors?.['maxlength']">
+                  This field must have at most 250 characters.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inputLables">
+            <div style="order: 1;" class="pt-1">
+              <label for="phone" class="form-label">Phone No:</label>
+            </div>
+            <div style=" order: 2;margin-left: auto;" class="mainMultiselect">
+              <input type="tel" id="phone" name="phone" formControlName="phone" placeholder="Enter your phone " required
+                minlength="10" maxlength="10" class="inputBox form-control form-control-sm"
+                [class.is-invalid]="phone.invalid && (phone.dirty || phone.touched)">
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
+                <div *ngIf="phone.errors?.['required']">
+                  This field is required.
+                </div>
+                <div *ngIf="phone.errors?.['minlength']">
+                  This field must have 10 digit.
+                </div>
+                <div
+                  *ngIf="!phone.errors?.['required'] && !phone.errors?.['minlength'] && !phone.errors?.['maxlength'] && phone.errors?.['phoneValidator']">
+                  Invalid phone format.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-selection-divider">
+          <div class="inputLables">
+            <div style="order: 1;" class="pt-1">
+              <label for="lastName" class="form-label">Last Name:</label>
+            </div>
+            <div style=" order: 2;margin-left: auto;" class="mainMultiselect">
+              <input type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="Enter your last Name"
+                required maxlength="250" class="inputBox form-control form-control-sm"
+                [class.is-invalid]="lastName.invalid && (lastName.dirty || lastName.touched)">
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="invalid-feedback">
+                <div *ngIf="lastName.errors?.['required']">
+                  This field is required.
+                </div>
+                <div *ngIf="lastName.errors?.['maxlength']">
+                  This field must have at most 250 characters.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inputLables">
+            <div style="order: 1;" class="pt-1">
+              <label for="email" class="form-label">Email:</label>
+            </div>
+            <div style=" order: 2;
+            margin-left: auto;" class="mainMultiselect">
+              <input type="email" id="email" name="email" formControlName="email" placeholder="your-name@provider.com"
+                required maxlength="250" class="inputBox form-control form-control-sm"
+                [class.is-invalid]="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                <div *ngIf="email.errors?.['required']">
+                  This field is required.
+                </div>
+                <div *ngIf="email.errors?.['maxlength']">
+                  This field must have at most 250 characters.
+                </div>
+                <div
+                  *ngIf="!email.errors?.['required'] && !email.errors?.['minlength'] && !email.errors?.['maxlength'] && email.errors?.['emailValidator']">
+                  Invalid email format.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="input-selection-divider" style="gap:1px !important">
+          <div class="inputLables" >
+            <div style="order: 1;" class="pt-1">
+              <label for="region" class="form-label">
+                Region:</label>
+            </div>
+            <!-- for search add this [searchFn]="customSearchFn" -->
+            <div style=" order: 2;">
+              <ng-select style="  height:40px; width: 220px; font-size: 16 px;  text-decoration: none;
+             " [items]="states" id="region" [placeholder]="'Select region'" formControlName="region" required
+                [class.is-invalid]="region.invalid && (region.dirty || region.touched)">
+              </ng-select>
+              <div *ngIf="region.invalid && (region.dirty || region.touched)" class="invalid-feedback">
+                <div *ngIf="region.errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inputLables" style="padding-top: .8rem;">
+            <div style="order: 1;">
+              <label for="branch" class="form-label">Branch:</label>
+            </div>
+            <div style="order: 2;">
+              <ng-select style="height:40px; width: 220px; font-size: 16 px;  text-decoration: none;
+      " [items]="branches" bindLabel="name" id="branch" bindValue="id" [placeholder]="'Select branch'"
+                formControlName="branchId" required
+                [class.is-invalid]="branch.invalid && (branch.dirty || branch.touched)">
+              </ng-select>
+
+              <div *ngIf="branch.invalid && (branch.dirty || branch.touched)" class="invalid-feedback">
+                <div *ngIf="branch.errors?.['required']">
+                  This field is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr style="margin-top: 2rem;">
+      <div class="mainMultiselect" style="display: inline;width: 30%; margin-left: auto;">
+        <button (click)="submitbutton()" class="submitButton " type="submit" (mouseenter)="hover = true"
+          (mouseleave)="hover = false" [ngStyle]="{ 'background-color': hover ? '#43425D' : '#FFFFFF' }">submit</button>
+      </div>
+    </form>
+  </div>
+</div>

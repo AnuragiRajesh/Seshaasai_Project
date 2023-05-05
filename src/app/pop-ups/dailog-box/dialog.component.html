@@ -1,0 +1,19 @@
+
+       <div class="modal-header">
+        <!-- <h4 class="modal-title">My Modal</h4> -->
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style=" text-align: center;"> <h4> Are you sure you want to delete?</h4></div>
+      </div>
+              <div style=" display: flex; flex-direction: row; justify-content: center; gap: 2rem; margin: 10px; border-radius: 5px; ">
+
+
+                <button (mouseenter)="hoverForOk = true" class="export-button"
+                (mouseleave)="hoverForOk = false" [ngStyle]="{ 'background-color': hoverForOk ? '#43425D' : '#FFFFFF' }" type="button" style=" padding: 5px 25px;"  (click)="modal.close(true)">OK</button>
+                <button (mouseenter)="hoverForCancle = true"  class="export-button"
+                (mouseleave)="hoverForCancle = false" [ngStyle]="{ 'background-color': hoverForCancle ? '#43425D' : '#FFFFFF' }" type="button" style=" padding: 5px 20px;"  (click)="modal.dismiss()">Cancel</button>
+          </div>
+       

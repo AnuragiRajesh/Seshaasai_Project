@@ -1,0 +1,42 @@
+<div class="content" style="background-color: #FFFFFF;"> 
+    <div  class="m-4" >
+
+<div style="background-color: #F4F4F4; text-align: center; margin-bottom: 1rem; ">
+<div class="summary">
+
+	<div class="valueLableSection" >
+		<div class="dataValues" >{{No_of_Accounts_Opened}}</div>
+		<div class="dataValuesLable">No. of Accounts Opened</div>
+	</div>
+	<div class="valueLableSection">
+		<div class="dataValues">{{No_of_Accounts_Closed}}</div>
+		<div class="dataValuesLable" >No. of Accounts Closed</div>
+	</div>
+	<div class="valueLableSection">
+	<div class="dataValues">{{Currrent_Inventory}}</div>	
+	<div class="dataValuesLable" >Active Accounts</div>
+	</div>
+	<div class="valueLableSection">
+		<div class="dataValues">{{Audits_completed}}</div>
+	<div class="dataValuesLable">Audits completed</div>
+	</div>
+	<div class="valueLableSection">
+		<div class="dataValues">{{Branch_recon_completed}}</div>
+		<div class="dataValuesLable">Branch recon completed</div>
+	</div>
+
+</div>
+<hr>
+<div style="display: flex;  justify-content: space-around; padding-bottom: .5rem; ">
+	<div >PAN-INDIA</div>
+	<div >DATE: 01/01/2022 - {{today | date:'dd/MM/yyyy'}}</div>
+	<!-- <button style="border: none !important; "  (click)="navigateToTable()">VIEW ALL</button> -->
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,13 @@
+<div class="modal-header">
+</div>
+<div class="modal-body">
+  <div style=" text-align: center;">
+    <h4>{{message}}</h4>
+  </div>
+</div>
+<div
+  style=" display: flex; flex-direction: row; justify-content: center; gap: 2rem; margin: 10px; border-radius: 5px; ">
+  <button (mouseenter)="hover = true" (mouseleave)="hover = false"
+    [ngStyle]="{ 'background-color': hover ? '#43425D' : '#FFFFFF' }" class="export-button" type="button"
+    style=" padding: 5px 25px;" (click)="modal.close(true)">OK</button>
+</div>

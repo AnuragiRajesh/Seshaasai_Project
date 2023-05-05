@@ -1,0 +1,102 @@
+<div class="content" style="background-color: #FFFFFF; ">
+  <div class="m-4">
+    <ng-template class="modal-main" #content let-modal>
+      <div style="margin-top: 1rem;">
+        <table class="PoopUp-Table">
+          <tr>
+            <th colspan="2">
+              Role Title:{{poop_up.Roll_Title}}
+            </th>
+          </tr>
+          <tr>
+            <td>Role Access:</td>
+            <td>{{poop_up.Roll_Access}}</td>
+          </tr>
+          <tr>
+            <td>View Access:</td>
+            <td>{{poop_up.View_Access}}</td>
+          </tr>
+          <tr>
+            <td>Rights/Permissions:</td>
+            <td>{{poop_up.Rights_Permissions}}</td>
+          </tr>
+          <tr>
+            <td>Role Description:</td>
+            <td>
+              <div>{{poop_up.Roll_Description}}</div>
+            </td>
+          </tr>
+        </table>
+        <div style=" display: flex; justify-content: center; margin: 10px;  ">
+          <button (mouseenter)="hover = true" (mouseleave)="hover = false"
+            [ngStyle]="{ 'background-color': hover ? '#43425D' : '#FFFFFF' }" type="button" class="export-button"
+            (click)="modal.close('Close click')">X Close</button>
+        </div>
+      </div>
+    </ng-template>
+    <div class="d-flex flex-row justify-content-between">
+      <div class="addingNewRoleUser">Roles</div>
+      <!-- <button class="addNewRoleAndUserButton" ><i class="fa-light fa-plus"></i> <a >Add new role</a></button> -->
+      <a [routerLink]="['/home/rolesComponent/addRole']" class="addNewRoleAndUserButton"><i
+          class="fa-light fa-plus"></i> Add new role</a>
+    </div>
+    <hr>
+    <!-- <div style=" display: flex;  justify-content: right;">
+    <button matTooltip="Excel" class="export-button"  color="primary"   (click)="ExportTOExcel()">Download As </button></div> -->
+  </div>
+
+  <div class="ml-4 mr-4">
+    <div class="m-4 search-button">
+      <div class="row ">
+        <div class="input-group">
+          <input style="width: 10%; height: 45px;" class="form-control py-2 border-right-0 border" type="search"
+            value="search" id="example-search-input" matInput placeholder="Search" [(ngModel)]="searchText"
+            (input)="applyFilter()">
+          <span class="input-group-append">
+            <div style="height: 45px;" class="input-group-text bg-transparent form-control"><i class="fa fa-search"></i>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <button matTooltip="Excel" class="export-button " (click)="exportAsExcelFile('excel')">Download As </button>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <div class="example-container table-margin" #Table>
+    <mat-table class="mat-table" #table [dataSource]="dataSource" multiTemplateDataRows matSort>
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns1">
+        <mat-header-cell style="background-color: #F4F4F4;" *matHeaderCellDef mat-sort-header> {{column}}
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <span class="mobile-label">{{column}}:</span> {{element[column]}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell style="background-color: #F4F4F4;" *matHeaderCellDef> Read/Edit/Delete </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="mobile-label">Read/Edit/Delete:</span>
+          <button mat-icon-button class="matIconButton" matTooltip="Read " (click)="openDialogOfRead(content,element)">
+            <mat-icon>remove_red_eye</mat-icon></button>
+          <button mat-icon-button class="matIconButton" matTooltip="Edit" (click)=" editRow(element)">
+            <mat-icon>edit</mat-icon></button>
+          <button mat-icon-button class="matIconButton" matTooltip="Delete" (click)="openDialogOfDelete(element)">
+            <mat-icon>delete</mat-icon>
+          </button></mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row"></mat-row>
+    </mat-table>
+    <mat-paginator class="paginator" #MatPaginator showFirstLastButtons pageSize="5"></mat-paginator>
+  </div>
+</div>

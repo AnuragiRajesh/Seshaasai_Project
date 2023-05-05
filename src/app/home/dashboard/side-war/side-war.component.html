@@ -1,0 +1,50 @@
+<!--  -->
+<div class="container-fluid"  >
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="width: 50% !important">
+      <div class="sidebar-sticky" style="margin-top: -3rem">
+        <div style="background-color: #43425D; height: 3.4rem;" >  <img style="height: 2rem; margin-top: 10px; margin-left: 10px;" src="../../assets/SESHASAI-LOGO-OCT-2020.png" alt="Seshaasai Logo"></div>
+       
+          <div style="gap: 1rem;"  class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" [routerLink]="['dashboard']" role="tab" aria-controls="v-pills-home" aria-selected="true"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Dashboard</a>
+            <a *ngIf="true" class="nav-link " id="v-pills-profile-tab" data-toggle="pill"  [routerLink]="['userComponent']" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Users</a>
+            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" [routerLink]="['rolesComponent']" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Roles</a>
+            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" [routerLink]="['userRolesComponent']" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> User Roles</a>
+          </div>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div style="margin-left: 10px !important;"> <img style="height: 2rem;" src="../../assets/SESHASAI-LOGO-OCT-2020.png" alt="Seshaasai Logo"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div style=" justify-content: right" class="collapse navbar-collapse"><app-nav-bar></app-nav-bar></div>
+        <div  class="collapse navbar-collapse mt-4" id="navbarNav">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" [routerLink]="['dashboard']" role="tab" aria-controls="v-pills-home" aria-selected="true"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " id="v-pills-profile-tab" data-toggle="pill"  [routerLink]="['userComponent']" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" [routerLink]="['rolesComponent']" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> Roles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" [routerLink]="['userRolesComponent']" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i style="margin-right: 10px;" class="fa-solid fa-square"></i> User Roles</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="Logout()" class="nav-link" id="v-pills-settings-tab" data-toggle="pill" role="tab" aria-controls="v-pills-settings" aria-selected="false"><i  style="margin-right: 10px;" class="fa-sharp fa-solid fa-circle-user"></i>Log Out</a>
+            </li>
+           
+           
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid mt-3">
+      </div>
+    </main>
+  </div>
+</div>

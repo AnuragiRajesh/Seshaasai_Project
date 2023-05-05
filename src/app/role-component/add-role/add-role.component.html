@@ -1,0 +1,146 @@
+<div class="content" style="background-color: #FFFFFF; ">
+    <div class="m-4">
+        <div class="d-flex flex-row justify-content-between">
+            <div class="addingNewRoleUser">Add new role</div>
+            <a style="display: flex;" [routerLink]="['/home/rolesComponent/role']" class="addNewRoleAndUserButton">
+                <mat-icon>chevron_left</mat-icon>
+                <div><a>Back to list</a></div>
+            </a>
+
+        </div>
+        <hr>
+        <form [formGroup]="reactiveForm" #form="ngForm">
+            <div
+                class="input-selection">
+                <div class="input-selection-divider">
+                    <div class="inputLables">
+                        <div style="order: 1;" class="pt-1">
+                            <label for="Name" class="form-label">Roll Title:</label>
+                        </div>
+
+                        <div style=" order: 2;
+                        margin-left: auto;" class="mainMultiselect">
+                            <input class="inputBox form-control form-control-sm" type="text" id="Name" name="Name"
+                                formControlName="Name" placeholder="Enter Role" required maxlength="250"
+                                [class.is-invalid]="Name.invalid && (Name.dirty || Name.touched)">
+                            <div *ngIf="Name.invalid && (Name.dirty || Name.touched)" class="invalid-feedback">
+                                <div *ngIf="Name.errors?.['required']">
+                                    This field is required.
+                                </div>
+
+                                <div *ngIf="Name.errors?.['maxlength']">
+                                    This field must have at most 250 characters.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="inputLables">
+                        <div style="order: 1;" class="pt-1">
+                            <label for="View" class="form-label">View:</label>
+                        </div>
+                        <div style=" order: 2;
+                        margin-left: auto;" class="mainMultiselect">
+                            <ng-multiselect-dropdown id="View" formControlName="View"
+                                [placeholder]="'Select view access'" [settings]="dropdownSettingsForView" [data]="view"
+                                [class.is-invalid]="View.invalid && (View.dirty || View.touched)">
+                            </ng-multiselect-dropdown>
+                            <div *ngIf="View.invalid && (View.dirty || View.touched)" class="invalid-feedback">
+                                <div *ngIf="View.errors?.['required']">
+                                    This field is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="input-selection-divider">
+
+
+                    <div class="inputLables">
+                        <div style="order: 1; ">
+                            <label for="roll_access" class="form-label">Roll Access:</label>
+                        </div>
+                        <div style="order: 2;">
+                            <ng-select
+                                [class.is-invalid]="RoleAccess.invalid && (RoleAccess.dirty || RoleAccess.touched)"
+                                class="roll_access" style="  height:40px; width: 220px;   text-decoration: none;
+                        " [items]="roll_access" bindLabel="name" bindValue="id" [placeholder]="'Select access'"
+                                formControlName="RoleAccess">
+                            </ng-select>
+                            <div *ngIf="RoleAccess.invalid && (RoleAccess.dirty || RoleAccess.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="RoleAccess.errors?.['required']">
+                                    This field is required.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="inputLables">
+                        <div style="order: 1;">
+                            <label for="roll_des" class="form-label">Roll desc:</label>
+                        </div>
+                        <div style=" order: 2;
+                        margin-left: auto;" class="mainMultiselect">
+
+                            <textarea
+                                [class.is-invalid]="Description.invalid && (Description.dirty || Description.touched)"
+                                id="roll_des" class="inputBox form-control form-control-sm"
+                                placeholder="Enter Role Description" formControlName="Description"></textarea>
+                            <div *ngIf="Description.invalid && (Description.dirty || Description.touched)"
+                                class="invalid-feedback">
+                                <div *ngIf="Description.errors?.['required']">
+                                    This field is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="input-selection-divider">
+
+                    <div class="inputLables">
+                        <div style="order: 1;">
+                            <label for="roll_des" class="form-label">Rights:</label>
+                        </div>
+
+                        <div style=" order: 2;">
+                            <ng-select [class.is-invalid]="Rights.invalid && (Rights.dirty || Rights.touched)" style=" height:40px; width: 220px; font-size: 16 px;  text-decoration: none;
+                        " [items]="rights" bindLabel="name" bindValue="id" [placeholder]="'Select right'"
+                                formControlName="Rights">
+                            </ng-select>
+                            <div *ngIf="Rights.invalid && (Rights.dirty || Rights.touched)" class="invalid-feedback">
+                                <div *ngIf="Rights.errors?.['required']">
+                                    This field is required.
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div style="text-align: right;">
+                        <div>
+                            <button (mouseenter)="hover = true" (mouseleave)="hover = false"
+                                [ngStyle]="{ 'background-color': hover ? '#43425D' : '#FFFFFF' }" class="submitButton"
+                                (click)="submitbutton()">submit</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <hr style="margin-top: 2rem;">
+        </form>
+    </div>
+</div>

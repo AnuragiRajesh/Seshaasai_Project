@@ -1,0 +1,49 @@
+<div class="content" style="background-color: #FFFFFF; ">
+    <div class="m-4">
+        <div class="d-flex justify-content-between">
+            <div class="addingNewRoleUser">Edit assgined role</div>
+            <a style="display: flex;" [routerLink]="['/home/userRolesComponent/userRoles']"
+                class="addNewRoleAndUserButton"> <mat-icon>chevron_left</mat-icon>
+                <div><a>Back to list</a></div>
+            </a>
+
+        </div>
+        <hr>
+        <div class="edit-assign-role">
+            <div matTooltip="Read only" class="inputLables">
+                <label for="user">User Name:</label>
+                <div>
+                </div>
+                <div id="user" class="inputLables not-edit-user">
+                    <h6>{{user}}</h6>
+                </div>
+            </div>
+
+            <div class="inputLables">
+                <div>
+                    <label for="role">Role Title:</label>
+                </div>
+                <div id="role">
+                    <mat-form-field class="example-full-width" style="margin-top: 1rem;" appearance="fill">
+                        <mat-label>Select a role</mat-label>
+                        <input type="text" matInput [formControl]="role" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFnOfRoles">
+                            <mat-option *ngFor="let option of filteredOptionsOfRoles | async" [value]="option"
+                                (click)="selectOptionOfRole(option)">
+                                {{option.Role}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="mainMultiselect" style="display: inline-block;  align-self: center;">
+                <button (mouseenter)="hover = true" (mouseleave)="hover = false"
+                    [ngStyle]="{ 'background-color': hover ? '#43425D' : '#FFFFFF' }" class="submitButton"
+                    (click)="submitbutton()">submit</button>
+            </div>
+        </div>
+
+
+    </div>
+    <hr>
+</div>

@@ -1,0 +1,48 @@
+// button{
+//     border: none;
+//   }
+  .dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+  }
+  .dark-modal .close {
+    color: white;
+  }
+  .light-blue-backdrop {
+    background-color: #5cb3fd;
+  }
+  .modal-main{
+    z-index:1060
+  }
+  .modal-backdrop
+  {
+    z-index:1040
+  }
+  .PoopUp-Table{
+  
+  margin: auto;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 15px;
+  
+  td {
+    margin: 10px;
+    text-align: left;
+  }
+  
+  }
+  .dialog-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  }
+  
+  .modal-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  }
+  

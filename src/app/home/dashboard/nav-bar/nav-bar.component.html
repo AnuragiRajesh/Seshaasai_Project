@@ -1,0 +1,18 @@
+<nav style="display: flex;  justify-content: right;">
+  <div style="margin-right: 10%;" class="dropdown">
+    <button class="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      {{user}}
+    </button>
+    <div class="dropdown-menu" style="width: 5%" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" (click)="Logout()">Logout</button>
+      <!-- <button class="dropdown-item" type="button">Action</button>
+        <button class="dropdown-item" type="button">Something </button> -->
+    </div>
+  </div>
+  <div style=" opacity: 1;  border:1.5px solid #43425D;
+    height: 35px;  margin-right: 1rem; "></div>
+  <div style="margin-top: 8px; margin-right: 3%;">
+    <i class="fa-sharp fa-solid fa-circle-user"></i>
+  </div>
+</nav>
